@@ -1,0 +1,77 @@
+const game = {
+    team1: 'Bayern Munich',
+    team2: 'Borussia Dortmund',
+    players: [
+        [
+            'Neuer',
+            'Pavard',
+            'Martinez',
+            'Alaba',
+            'Davies',
+            'Kimmich',
+            'Goretzka',
+            'Coman',
+            'Muller',
+            'Gnabry',
+            'Lewandowski',
+        ],
+        [
+            'Burki',
+            'Schulz',
+            'Hummels',
+            'Akanji',
+            'Hakimi',
+            'Weigl',
+            'Witsel',
+            'Hazard',
+            'Brandt',
+            'Sancho',
+            'Gotze',
+        ],
+    ],
+    score: '4:0',
+    scored: ['Lewandowski', 'Gnabry', 'Lewandowski', 'Hummels'],
+    date: 'Nov 9th, 2037',
+    odds: {
+        team1: 1.33,
+        x: 3.25,
+        team2: 6.5,
+    },
+};
+//1.Tạo mảng một người chơi cho mỗi đội
+const players1 = game.players[0];
+const players2 = game.players[1];
+
+console.log(players1); // Array of players for Bayern Munich
+console.log(players2); // Array of players for Borussia Dortmund
+
+
+// 2.Tạo một biến cho thủ môn ('gk') và một mảng cho các cầu thủ trên sân ('fieldPlayers')
+const [gk, ...fieldPlayers] = players1;
+console.log(gk); // Output: 'Neuer'
+console.log(fieldPlayers); // Output: Remaining 10 field players for Bayern Munich
+
+//3.Tạo một mảng 'allPlayers' chứa tất cả người chơi của cả hai đội
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers); // Output: Array of 22 players
+
+
+// 4. Cầu thủ cuối cùng của Bayern Munich sau khi thay người
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+
+// 5. Biến tỷ lệ cược
+const { team1, x: draw, team2 } = game.odds;
+
+// 6. In ra hàm bàn thắng
+function printGoals(...players) {
+    console.log(`${players.length} goals were scored by:`);
+    players.forEach(player => console.log(player));
+}
+
+// Kiểm tra hàm in ra bàn thắng
+printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+printGoals(...game.scored);
+
+// 7. Xác định người chiến thắng có khả năng
+const likelyWinner = game.odds.team1 < game.odds.team2 && game.team1 || game.team2;
+console.log(`${likelyWinner} is more likely to win.`);
