@@ -34,7 +34,7 @@ const ShopScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerText}>Bạn có thắc mắc với sản phẩm vừa xem. Đừng ngại chat với shop!</Text>
+      <Text style={styles.headerText}>Các bạn đang làm gì đó</Text>
         <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
           <Icon name="cart-outline" size={30} color="#fff" />
         </TouchableOpacity>
