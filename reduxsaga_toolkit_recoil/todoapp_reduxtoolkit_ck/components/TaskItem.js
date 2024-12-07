@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, Image, StyleSheet, Text } from 'react-native';
 import { updateJob, deleteJob } from './api';
 
+
 export default function TaskItem({ job, refreshJobs }) {
   const [input, setInput] = useState(job.title);
 
@@ -15,9 +16,10 @@ export default function TaskItem({ job, refreshJobs }) {
     refreshJobs();
   };
 
+
   return (
     <View style={styles.itemContainer}>
-      <Image source={require('../assets/tick.png')} />
+      <Image source={require('../assets/edit.png')} />
       <TextInput
         style={styles.input}
         placeholder={job.title}
@@ -29,7 +31,7 @@ export default function TaskItem({ job, refreshJobs }) {
           <Text>Xóa</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={handleEdit}>
-          <Image source={require('../assets/edit.png')} />
+          <Image source={require('../assets/tick.png')} />
         </TouchableOpacity>
       </View>
     </View>
